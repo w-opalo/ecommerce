@@ -1,4 +1,8 @@
-@import 'tailwindcss';
+/* @import 'tailwindcss'; */
+@import "tailwindcss";
+/* other stuff */
+
+@plugin "daisyui";
 
 @plugin 'tailwindcss-animate';
 
