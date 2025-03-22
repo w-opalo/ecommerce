@@ -23,12 +23,12 @@ class UserSeeder extends Seeder
 
         User::factory()->create([
             'name' => 'Vendor',
-            'email' => 'Vendor@gmail.com',
+            'email' => 'vendor@gmail.com',
         ])->assignRole(EnumsRolesEnum::Vendor->value);
 
         User::factory()->create([
             'name' => 'Admin',
-            'email' => 'Admin@gmail.com',
+            'email' => 'admin@gmail.com',
         ])->assignRole(EnumsRolesEnum::Admin->value);
     }
 }
