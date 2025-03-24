@@ -37,7 +37,7 @@ class DepartmentResource extends Resource
                 TextInput::make('name')
                     ->live(onBlur: true)
                     ->required()
-                    ->afterStateUpdated(function (string $operation, $state, $set) {
+                    ->afterStateUpdated(function (string $operation, $state, callable $set) {
                         $set('slung', Str::slug($state));
                     }),
                 TextInput::make('slung')
@@ -89,6 +89,6 @@ class DepartmentResource extends Resource
     public static function canViewAny(): bool
     {
         $user = Filament::auth()->user();
-        return $user && $user->hasRole(RolesEnum::Admin);
+        return $user && $user->hasRoles(RolesEnum::Admin);
     }
 }

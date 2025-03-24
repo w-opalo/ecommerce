@@ -18,14 +18,14 @@ class CategoriesRelationManager extends RelationManager
 
     public function form(Form $form): Form
     {
-        $department = $this->getRecord();
+        $department = $this->getOwnerRecord();
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')
                     ->required()
                     ->maxLength(255),
                 Forms\Components\Select::make('parent_id')
-                    ->options(function () {
+                    ->options(function () use ($department) {
                         return Category::query()
                             ->where('department_id', $department->id)
                             ->pluck('name', 'id')
