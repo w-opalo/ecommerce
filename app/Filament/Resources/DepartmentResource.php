@@ -86,9 +86,9 @@ class DepartmentResource extends Resource
         ];
     }
 
-    public static function canViewAny(): bool
-    {
-        $user = Filament::auth()->user();
-        return $user && $user->hasRoles(RolesEnum::Admin);
-    }
+    // public static function canViewAny(): bool
+    // {
+    //     $user = Filament::auth()->user();
+    //     return $user && $user->hasRole(RolesEnum::Admin);
+    // }
 }

@@ -33,7 +33,7 @@ class CategoriesRelationManager extends RelationManager
                     })
                     ->label('Parent Category')
                     ->preload()
-                    ->seachable(),
+                    ->searchable(),
                 Forms\Components\Checkbox::make('active'),
             ]);
     }
