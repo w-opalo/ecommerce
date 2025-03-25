@@ -24,6 +24,7 @@ class Product extends Model implements HasMedia
             ->width(1200);
         // ->height(800);
     }
+
     public function department(): BelongsTo
     {
         return $this->belongsTo(Department::class);
