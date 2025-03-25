@@ -22,8 +22,10 @@ return new class extends Migration
             $table->decimal('price', 20, 4);
             $table->string('status')->index();
             $table->integer('quantity')->nullable();
-            $table->foreignIdFor(User::class, 'created_by');
-            $table->foreignIdFor(User::class, 'updated_by');
+            // $table->foreignIdFor(User::class, 'created_by');
+            // $table->foreignIdFor(User::class, 'updated_by');
+            $table->foreignId('created_by')->nullable()->constrained('users')->nullOnDelete();
+            $table->foreignId('updated_by')->nullable()->constrained('users')->nullOnDelete();
             $table->timestamp('deleted_at')->nullable();
             $table->timestamps();
         });
