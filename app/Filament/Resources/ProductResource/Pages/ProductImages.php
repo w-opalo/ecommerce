@@ -15,6 +15,7 @@ class ProductImages extends EditRecord
 {
     protected static string $resource = ProductResource::class;
 
+    protected static ?string $title = 'Images';
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
 
@@ -23,6 +24,7 @@ class ProductImages extends EditRecord
         return $form
             ->schema([
                 SpatieMediaLibraryFileUpload::make('images')
+                    ->label(false)
                     ->image()
                     ->multiple()
                     ->openable()
