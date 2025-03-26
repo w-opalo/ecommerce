@@ -6,6 +6,7 @@ use App\Enums\ProductStatusEnum as EnumsProductStatusEnum;
 use App\Filament\Resources\ProductResource\Pages;
 use App\Filament\Resources\ProductResource\Pages\EditProduct;
 use App\Filament\Resources\ProductResource\Pages\ProductImages;
+use App\Filament\Resources\ProductResource\Pages\ProductVariations;
 use App\Filament\Resources\ProductResource\Pages\ProductVariationsTypes;
 use App\Models\Product;
 use Filament\Forms;
@@ -158,6 +159,7 @@ class ProductResource extends Resource
             'edit' => Pages\EditProduct::route('/{record}/edit'),
             'images' => Pages\ProductImages::route('/{record}/images'),
             'variation-types' => Pages\ProductVariationsTypes::route('/{record}/variation-types'),
+            'variations' => Pages\ProductVariations::route('/{record}/variations'),
         ];
     }
 
@@ -167,6 +169,7 @@ class ProductResource extends Resource
             EditProduct::class,
             ProductImages::class,
             ProductVariationsTypes::class,
+            ProductVariations::class,
         ]);
     }
 }
