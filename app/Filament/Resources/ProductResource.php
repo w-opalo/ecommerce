@@ -16,8 +16,10 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Forms\Form;
+use Filament\Pages\Page as PagesPage;
 use Filament\Pages\SubNavigationPosition;
 use Filament\Resources\Pages\Page;
+// use Filament\Resources\Pages\Page;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
@@ -27,12 +29,21 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Str;
 
+// use App\Filament\Resources\CustomerResource\Pages;
+
 class ProductResource extends Resource
 {
     protected static ?string $model = Product::class;
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
     // protected static ?string $navigationIcon = 'heroicon-s-queue-list';
     protected static SubNavigationPosition $subNavigationPosition = SubNavigationPosition::End;
+    // protected static Navi $navi = Navi::End;
+    // protected static Navi $navi = Navi::End;
+
+    public static function getEloquentQuery(): Builder
+    {
+        return parent::getEloquentQuery()->with(['department', 'category']);
+    }
 
 
     public static function form(Form $form): Form
@@ -165,7 +176,7 @@ class ProductResource extends Resource
 
     public static function getRecordSubNavigation(Page $page): array
     {
-        return $page->getNavigationItems([
+        return  $page->getNavigationItems([
             EditProduct::class,
             ProductImages::class,
             ProductVariationsTypes::class,

@@ -16,4 +16,11 @@ class EditProduct extends EditRecord
             Actions\DeleteAction::make(),
         ];
     }
+
+    // protected function mutateFormDataBeforeFill(array $data): array
+    // {
+    //     $data['user_id'] = auth()->id();
+
+    //     return $data;
+    // }
 }

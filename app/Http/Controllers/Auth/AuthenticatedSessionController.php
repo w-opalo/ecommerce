@@ -72,7 +72,7 @@ class AuthenticatedSessionController extends Controller
 
         $user = Auth::user();
         if ($user->hasAnyRole([RolesEnum::Admin, RolesEnum::Vendor])) {
-            return Inertia::location(route('dashboard', absolute: false));
+            // return Inertia::location(route('dashboard', absolute: false));
             // return Inertia::location(route('/admin'));
             return Inertia::location(route('filament.admin.dashboard'));
         } else {

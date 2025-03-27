@@ -8,16 +8,18 @@ use Filament\Forms\Form;
 use Filament\Resources\Pages\EditRecord;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 
-
-
-
 class ProductImages extends EditRecord
 {
     protected static string $resource = ProductResource::class;
 
     protected static ?string $title = 'Images';
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
 
+    protected function getHeaderActions(): array
+    {
+        return [
+            Actions\DeleteAction::make(),
+        ];
+    }
 
     public function form(Form $form): Form
     {
@@ -33,14 +35,7 @@ class ProductImages extends EditRecord
                     ->reorderable()
                     ->appendFiles()
                     ->preserveFilenames()
-                    ->columnSpan(2)
+                    ->columnSpan(2),
             ]);
-    }
-
-    protected function getHeaderActions(): array
-    {
-        return [
-            Actions\DeleteAction::make(),
-        ];
     }
 }

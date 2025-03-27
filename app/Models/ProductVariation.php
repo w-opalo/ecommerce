@@ -6,5 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ProductVariation extends Model
 {
-    //
+    protected $casts = [
+        'variations_type_option_ids' => 'json',
+    ];
 }

@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Query\Builder;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
@@ -12,6 +13,10 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
 class Product extends Model implements HasMedia
 {
     use InteractsWithMedia;
+
+    // protected $casts = [
+    //     'variations' => 'array',
+    // ];
 
     public function registerMediaConversions(?Media $media = null): void
     {
@@ -25,6 +30,11 @@ class Product extends Model implements HasMedia
             ->width(1200);
         // ->height(800);
     }
+
+    // public function scopeForVendor(Builder $query): Builder
+    // {
+    //     return $query->where('vendor_id', auth()->id());
+    // }
 
     public function department(): BelongsTo
     {
