@@ -42,7 +42,8 @@ class ProductResource extends Resource
 
     public static function getEloquentQuery(): Builder
     {
-        return parent::getEloquentQuery()->with(['department', 'category']);
+        // return parent::getEloquentQuery()->with(['department', 'category']);
+        return parent::getEloquentQuery()->forVendor();
     }
 
 

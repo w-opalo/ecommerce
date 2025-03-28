@@ -5,6 +5,23 @@ export interface Auth {
     user: User;
 }
 
+export interface Product {
+    id: number;
+    title: string;
+    slung: string;
+    price: number;
+    quantity: number;
+    image: string;
+    user: {
+        id: number;
+        name: string;
+    };
+    department: {
+        id: number;
+        name: string;
+    };
+}
+
 export interface BreadcrumbItem {
     title: string;
     href: string;
