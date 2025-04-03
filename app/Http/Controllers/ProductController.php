@@ -9,7 +9,7 @@ use App\Models\Product;
 
 class ProductController extends Controller
 {
-    public function index()
+    public function home()
     {
         $products = Product::query()
             ->published()
@@ -18,4 +18,6 @@ class ProductController extends Controller
             'products' => ProductListResource::collection($products),
         ]);
     }
+
+    public function show(Product $product) {}
 }

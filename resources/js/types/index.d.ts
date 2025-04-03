@@ -22,6 +22,10 @@ export interface Product {
     };
 }
 
+export type PaginationProps<T> = {
+    data: Array<T>;
+    // href: string;
+}
 export interface BreadcrumbItem {
     title: string;
     href: string;

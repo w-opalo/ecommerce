@@ -20,6 +20,8 @@ class RoleSeeder extends Seeder
         $vendorRole = Role::create(['name' => RolesEnum::Vendor->value]);
         $adminRole = Role::create(['name' => RolesEnum::Admin->value]);
 
+
+
         $approveVendors = Permission::create(['name' => PermissionEnum::ApproveVendor->value]);
         $BuyProduct = Permission::create(['name' => PermissionEnum::BuyProducts->value]);
         $SellProduct = Permission::create(['name' => PermissionEnum::SellProducts->value]);

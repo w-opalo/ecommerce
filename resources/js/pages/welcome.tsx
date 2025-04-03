@@ -1,8 +1,9 @@
-import { type SharedData } from '@/types';
+import { PaginationProps, Product, type SharedData } from '@/types';
 import { Head, Link, usePage } from '@inertiajs/react';
 import Navbar from '@/components/ui/navbar';
+import ProductItem from '@/components/ui/productItem';
 
-export default function Welcome() {
+export default function Welcome({ products }: { products: PaginationProps<Product> }) {
     const { auth } = usePage<SharedData>().props;
 
     return (
@@ -14,7 +15,7 @@ export default function Welcome() {
 
             <Navbar />
 
-            <div className="hero bg-grey-200 h-[300px]">
+            <div className="hero bg-gray-200 h-[300px]">
                 <div className="hero-content text-center">
                     <div className="max-w-md">
                     <h1 className="text-5xl font-bold">Hello there</h1>
@@ -25,6 +26,12 @@ export default function Welcome() {
                     <button className="btn btn-primary">Get Started</button>
                     </div>
                 </div>
+            </div>
+
+            <div className='grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 p-8'>
+                {products.data.map(product => (
+                    <ProductItem product={product } key={product.id } />
+                ))}
             </div>
         </>
     );
