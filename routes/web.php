@@ -7,7 +7,7 @@ use Inertia\Inertia;
 // Route::get('/', function () {
 //     return Inertia::render('welcome');
 // })->name('home');
-Route::get('/', ProductController::class, 'home')->name('home');
+Route::get('/', [ProductController::class, 'home'])->name('home');
 // Route::get('/product/{product:slung}', ProductController::class, 'show')->name('product.show');
 // Route::get('/products', [ProductController::class, 'index']);
 
